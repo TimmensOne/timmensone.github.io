@@ -1,23 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <meta name="description" content="IT- und Kartografie-Dienstleistungen">
+    <meta name="author" content="Timon Lorenz">
+    <title>IT & Kartografie – Timon Lorenz</title>
+
     <style>
+        html,
         body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-            background-color: #f4f4f4;
-        }
-        h1 {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
             color: #333;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: #444;
+            padding: 10px;
+        }
+
+        .tabs a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 18px;
+            font-weight: bold;
+            background: #666;
+            border-radius: 5px 5px 0 0;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+
+        .tabs a:hover,
+        .tabs a:focus {
+            background: #888;
+        }
+
+        /* Aktiven Tab hervorheben */
+        #home:target~.tabs a[href="#home"],
+        #about:target~.tabs a[href="#about"],
+        #services:target~.tabs a[href="#services"],
+        #contact:target~.tabs a[href="#contact"],
+        #references:target~.tabs a[href="#references"],
+        #legal:target~.tabs a[href="#legal"] {
+            background: #fff;
+            color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border-radius: 0 0 10px 10px;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Zeige den aktiven Tab */
+        #home:target,
+        #about:target,
+        #services:target,
+        #contact:target,
+        #references:target,
+        #legal:target {
+            display: block;
+        }
+
+        /* Standard-Tab anzeigen (Home) */
+        body:not(:has(:target)) #home {
+            display: block;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .cta {
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .cta:hover {
+            background: #218838;
+        }
+
+        #impressum {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+
+        #impressum a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #impressum a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-    <h1>Hello, World! 🌍</h1>
-    <p>Welcome to my website hosted on GitHub Pages!</p>
+    <header>
+        <h1>IT & Kartografie – Timon Lorenz</h1>
+    </header>
+
+    <nav class="tabs">
+        <a href="#home">Startseite</a>
+        <a href="#about">Über mich</a>
+        <a href="#services">Leistungen</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#references">Referenzen</a>
+        <a href="#legal">Rechtliches</a>
+    </nav>
+
+    <!-- Tab-Inhalte -->
+    <section id="home" class="tab-content">
+        <h2>Willkommen!</h2>
+        <p>Professionelle IT- und Kartografie-Dienstleistungen für Ihre individuellen Anforderungen.</p>
+        <a href="#contact" class="cta">Jetzt Kontakt aufnehmen</a>
+    </section>
+
+    <section id="about" class="tab-content">
+        <h2>Über mich</h2>
+        <p>Ich bin ein erfahrener IT-Entwickler mit einer Leidenschaft für Kartografie. Durch innovative
+            Softwarelösungen helfe ich Ihnen, Ihre Projekte effizient umzusetzen.</p>
+    </section>
+
+    <section id="services" class="tab-content">
+        <h2>Leistungen</h2>
+        <ul>
+            <li>📌 Entwicklung maßgeschneiderter IT-Lösungen</li>
+            <li>📌 Automatisierung von Geschäftsprozessen mit Google Sheets</li>
+            <li>📌 Karten- und GIS-Dienstleistungen für Orientierungslauf & Geodaten</li>
+            <li>📌 Datenanalyse & Visualisierung</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="tab-content">
+        <h2>Kontakt</h2>
+        <p>Email: <a href="mailto:timon.lorenz.public@online.de">timon.lorenz.public@online.de</a></p>
+    </section>
+
+    <section id="references" class="tab-content">
+        <h2>Referenzen & Projekte</h2>
+        <p>Hier könnten Beispielprojekte oder Kundenstimmen stehen.</p>
+    </section>
+
+    <section id="legal" class="tab-content">
+        <h2>Rechtliches</h2>
+        <div id="impressum">
+            <h2>Impressum</h2>
+            <p><strong>Angaben gemäß § 5 TMG</strong></p>
+            <p><strong>Name:</strong> Timon Lorenz</p>
+            <p><strong>Adresse:</strong> Volcanusweg 16, 93055 Regensburg</p>
+            <p><strong>Telefon:</strong> +49 152 23156884</p>
+            <p><strong>E-Mail:</strong> <a href="mailto:timon.lorenz.public@online.de">timon.lorenz.public@online.de</a>
+            </p>
+            <p><strong>Umsatzsteuer-ID:</strong> ...</p>
+        </div>
+        <p><strong>Datenschutzerklärung:</strong> Ihre Daten werden gemäß DSGVO behandelt...</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Timon Lorenz – Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
+
 </html>
